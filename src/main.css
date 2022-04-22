@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-family: sans-serif;
+    --font-display: "MD Nichrome Test Dark";
+    --black: #000000;
+    --night: #112233;
+    --cobalt: #3050FF;
+    --rhubarb: #D46379;
+    --tangerine: #FA935E;
+    --straw: #DCCC9C;
+    --sage: #CCCEC3;
+    --off-white: #EEEAE5;
+    --gap: 1.5vw;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    max-width: 100vw;
+    min-height: 100vh;
+    background: linear-gradient(to top, var(--off-white), var(--sage));
+}
+
+.gradient {
+  background: linear-gradient(90deg, var(--tangerine), var(--rhubarb), var(--cobalt), var(--rhubarb), var(--tangerine));
+  background-size: 1000% 100%;
+  animation: gradient 30s linear infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	100% {
+		background-position: 100% 50%;
+	}
+}

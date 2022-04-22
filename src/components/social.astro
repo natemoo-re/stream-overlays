@@ -1,0 +1,131 @@
+---
+import { Icon } from 'astro-icon';
+---
+<div class="social">
+    <h2>/on/</h2>
+    <div>
+        <ul class="words">
+            <li style="--i: 0"><span>github</span></li>
+            <li style="--i: 1"><span>twitter</span></li>
+            <li style="--i: 2"><span>twitch</span></li>
+            <li style="--i: 0"><span>github</span></li>
+        </ul>
+    </div>
+    <ul class="icons">
+        <li><Icon name="mdi:github" /></li>
+        <li><Icon name="mdi:twitter" /></li>
+        <li><Icon name="mdi:twitch" /></li>
+    </ul>
+</div>
+
+<style>
+    .social {
+        display: flex;
+        font-family: var(--font-display);
+        font-size: 2.5vw;
+        --duration: 20s;
+        --height: 3vw;
+        color: var(--night);
+        height: var(--height);
+        line-height: var(--height);
+        transform: translateY(1.5vw);
+    }
+
+    .social > * {
+        font: inherit;
+    }
+
+    .social > div {
+        overflow: hidden;
+        position: relative;
+        width: 4em;
+    }
+
+    ul {
+        list-style: none;
+        height: var(--height);
+    }
+
+    .words {
+        position: absolute;
+        list-style: none;
+        height: var(--height);
+        width: 8em;
+        animation: move var(--duration) cubic-bezier(0.755, 0.05, 0.855, 0.06) infinite;
+    }
+
+    .icons {
+        display: flex;
+    }
+
+    .words li {
+        display: flex;
+        animation: a var(--duration) cubic-bezier(0.755, 0.05, 0.855, 0.06) infinite;
+    }
+
+    .icons {
+        --opacity-out: 0.5;
+        --opacity-in: 1;
+    }
+    .icons svg {
+        animation: a var(--duration) cubic-bezier(0.755, 0.05, 0.855, 0.06) infinite;
+    }
+    .icons :nth-child(1) svg {
+        animation-name: a;
+    }
+    .icons :nth-child(2) svg {
+        animation-name: b;
+    }
+    .icons :nth-child(3) svg {
+        animation-name: c;
+    }
+
+    @keyframes move {
+        0% {
+            transform: translateY(0%);
+        }
+        33% {
+            transform: translateY(-100%);
+        }
+        67% {
+            transform: translateY(-200%);
+        }
+        100% {
+            transform: translateY(-300%);
+        }
+    }
+    @keyframes a {
+        0%, 100% {
+            opacity: var(--opacity-in);
+        }
+        33%, 67% {
+            opacity: var(--opacity-out);
+        }
+    }
+    @keyframes b {
+        0%, 67%, 100% {
+            opacity: var(--opacity-out);
+        }
+        33% {
+            opacity: var(--opacity-in);
+        }
+    }
+     @keyframes c {
+        0%, 33%, 100% {
+            opacity: var(--opacity-out);
+        }
+        67% {
+            opacity: var(--opacity-in);
+        }
+    }
+
+    li > span {
+        min-width: 6ch;
+    }
+
+    li > :global(svg) {
+        width: 1em;
+        height: 1em;
+        font-size: 1em;
+    }
+</style>

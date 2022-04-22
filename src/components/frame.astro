@@ -1,0 +1,13 @@
+---
+let { ratio = 1, max } = Astro.props;
+max = max ? `${max}px` : 'auto';
+---
+<div class="frame gradient" style=`--aspect-ratio: ${ratio}; --mh: ${max};`></div>
+
+<style>
+.frame {
+    aspect-ratio: var(--aspect-ratio);
+    width: 100%;
+    max-height: var(--mh);
+}
+</style>

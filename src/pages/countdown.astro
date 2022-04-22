@@ -1,0 +1,41 @@
+---
+import Grain from '../components/grain.astro';
+import Bar from '../components/bar.astro';
+import '../main.css';
+import Frame from '../components/frame.astro';
+---
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>Astro</title>
+		<style>
+			main {
+				display: flex;
+				flex-direction: column;
+				padding: var(--gap);
+				gap: var(--gap);
+			}
+			h1 {
+				font-family: "MD Nichrome Test Ultra";
+				font-size: 15vw;
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				line-height: 0.9;
+			}
+			h3 {
+				font-size: 5vw;
+				color: var(--night);
+				font-family: MDNichromeTest-Bold;
+			}
+		</style>
+	</head>
+	<body>
+		<Grain />
+		<Bar />
+		<main>
+			<h3>nmoo.dev</h3>
+			<h1 class="gradient">Starting soon&hellip;</h1>
+		</main>
+	</body>
+</html>
