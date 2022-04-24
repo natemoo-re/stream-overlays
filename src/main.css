@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+html {
+    overflow: hidden;
+}
+
 :root {
     font-family: sans-serif;
     --font-display: "MD Nichrome Test Dark";
@@ -26,6 +30,12 @@ body {
     background: linear-gradient(to top, var(--off-white), var(--sage));
 }
 
+main {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
 .gradient {
   background: linear-gradient(90deg, var(--tangerine), var(--tangerine), var(--rhubarb), var(--cobalt), var(--rhubarb), var(--tangerine), var(--tangerine));
   background-size: 1200% 100%;
@@ -39,4 +49,15 @@ body {
 	100% {
 		background-position: 100% 50%;
 	}
+}
+
+@keyframes move {
+    from {
+        opacity: calc(var(--n-start));
+        transform: translate(0, var(--ty-start));
+    }
+    to {
+        opacity: calc(var(--n-end));
+        transform: translate(0, var(--ty-end));
+    }
 }

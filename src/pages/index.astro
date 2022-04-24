@@ -1,9 +1,11 @@
 ---
+import Chat from '../components/chat.astro';
+import Frame from '../components/frame.astro';
+import Grid from '../components/grid.astro';
 import Grain from '../components/grain.astro';
 import Bar from '../components/bar.astro';
 import Social from '../components/social.astro';
 import '../main.css';
-import Frame from '../components/frame.astro';
 ---
 <html lang="en">
 	<head>
@@ -13,7 +15,7 @@ import Frame from '../components/frame.astro';
 		<style>
 			main {
 				display: grid;
-				grid-template-columns: 1.05fr 1fr;
+				grid-template-columns: 3fr 1fr;
 				gap: var(--gap);
 				padding: var(--gap);
 			}
@@ -44,16 +46,23 @@ import Frame from '../components/frame.astro';
 		<Grain />
 		<Bar />
 		<main>
-			<h1 class="gradient">Let’s chat, friends…</h1>
-			<Frame ratio="1 / 1" max="600" />
+			<Frame ratio="1.675 / 1" max="600"/>
 			<aside>
-
+				<Frame ratio="1 / 1" />
+				<Chat />
 			</aside>
 			<footer>
 				<div>
-					
+					<h1 class="gradient">nmoo.dev</h1>
 				</div>
+				<Social />
 			</footer>
 		</main>
+
+		<Grid />
+
+		<script>
+			import "../scripts/index.ts"
+		</script>
 	</body>
 </html>

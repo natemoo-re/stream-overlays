@@ -1,4 +1,6 @@
 ---
+import Chat from '../components/chat.astro';
+import Grid from '../components/grid.astro';
 import Grain from '../components/grain.astro';
 import Bar from '../components/bar.astro';
 import Social from '../components/social.astro';
@@ -13,15 +15,20 @@ import Frame from '../components/frame.astro';
 		<style>
 			main {
 				display: grid;
-				grid-template-columns: 3fr 1fr;
+				grid-template-columns: 1.05fr 1fr;
 				gap: var(--gap);
 				padding: var(--gap);
 			}
 			aside {
+				display: flex;
+				flex-direction: column;
 				grid-column: 2;
-				grid-row: 1;
+				grid-row: 1 / -1;
+				height: 100%;
+				align-items: center;
+				justify-content: center;
 			}
-			footer {
+			header {
 				display: flex;
 				flex-direction: row;
 				grid-column: 1 / -1;
@@ -29,14 +36,12 @@ import Frame from '../components/frame.astro';
 			}
 
 			h1 {
+				margin-top: auto;
+				text-align: center;
 				font-family: "MD Nichrome Test Ultra";
-				font-size: 5vw;
+				font-size: 7.5vw;
 				-webkit-background-clip: text;
 				-webkit-text-fill-color: transparent;
-			}
-			h3 {
-				font-size: 2vw;
-				font-family: MDNichromeTest-Bold;
 			}
 		</style>
 	</head>
@@ -44,16 +49,12 @@ import Frame from '../components/frame.astro';
 		<Grain />
 		<Bar />
 		<main>
-			<Frame ratio="1.675 / 1" max="600"/>
+			<Frame ratio="1 / 1" />
 			<aside>
-				<Frame ratio="1 / 1" />
+				<Chat />
+				<h1 class="gradient">nmoo.dev</h1>
 			</aside>
-			<footer>
-				<div>
-					<h1 class="gradient">nmoo.dev</h1>
-				</div>
-				<Social />
-			</footer>
 		</main>
+		<Grid />
 	</body>
 </html>

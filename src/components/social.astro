@@ -38,7 +38,7 @@ import { Icon } from 'astro-icon';
     .social > div {
         overflow: hidden;
         position: relative;
-        width: 4em;
+        width: 4.5em;
     }
 
     ul {
@@ -51,7 +51,7 @@ import { Icon } from 'astro-icon';
         list-style: none;
         height: var(--height);
         width: 8em;
-        animation: move var(--duration) cubic-bezier(0.755, 0.05, 0.855, 0.06) infinite;
+        animation: flip-thru var(--duration) cubic-bezier(0.755, 0.05, 0.855, 0.06) infinite;
     }
 
     .icons {
@@ -80,7 +80,7 @@ import { Icon } from 'astro-icon';
         animation-name: c;
     }
 
-    @keyframes move {
+    @keyframes flip-thru {
         0% {
             transform: translateY(0%);
         }
