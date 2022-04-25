@@ -1,13 +1,15 @@
 ---
-let { ratio = 1, max } = Astro.props;
+let { class: className, ratio = 1, max } = Astro.props;
 max = max ? `${max}px` : 'auto';
 ---
-<div class="frame gradient" style=`--aspect-ratio: ${ratio}; --mh: ${max};`>
-    <div class="frame inner" style=`--aspect-ratio: ${ratio}; --mh: ${max};`></div>
+<div class={"frame gradient " + className} style=`--aspect-ratio: ${ratio}; --mh: ${max};`>
+    <div class="frame inner" style=`--aspect-ratio: ${ratio}; --mh: ${max};`>
+        <slot />
+    </div>
 </div>
 
 <style>
-.frame {
+:where(.frame) {
     aspect-ratio: var(--aspect-ratio);
     width: 100%;
     max-height: var(--mh);
@@ -15,7 +17,7 @@ max = max ? `${max}px` : 'auto';
     align-items: center;
     justify-content: center;
 }
-.frame.inner {
+:where(.frame.inner) {
     width: calc(100% - (var(--gap) * 2));
     height: calc(100% - (var(--gap) * 2));
     background: linear-gradient(to top, var(--off-white), var(--sage));

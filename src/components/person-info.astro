@@ -1,0 +1,68 @@
+---
+import * as api from '../scripts/twitter';
+const { variant = 'large' } = Astro.props;
+const { name = 'Astro', twitter = 'astrodotbuild' } = Astro.props.person ?? {};
+
+const src = await api.getProfileImage(twitter);
+---
+<div class={`info variant-${variant} ${variant === 'badge' ? 'gradient' : ''}`}>
+    <img class={`${variant === 'badge' ? '' : 'gradient'}`} src={src} />
+    <div class="text">
+        <h2 class={`${variant === 'badge' ? '' : 'gradient'}`}>{name}</h2>
+        <p>@{twitter}</p>
+    </div>
+</div>
+
+<style>
+    .variant-large {
+        --size: 3vw;
+        margin-top: calc(var(--gap) / 2);
+    }
+    .variant-badge {
+        padding-top: 0.75vw;
+        --size: 2vw;
+        width: 100%;
+        margin-top: auto;
+    }
+    .info {
+        display: flex;
+        align-items: center;
+        gap: 1vw;
+    }
+    .text {
+        display: flex;
+        align-items: baseline;
+        gap: 0.5vw;
+    }
+    img {
+        padding: 0;
+        margin: 0;
+        display: block;
+        width: var(--size);
+        height: var(--size);
+        border-radius: 50%;
+        border: 2px solid white;
+    }
+    .variant-large img {
+        border-width: 4px;
+        border-color: transparent;
+    }
+    h2 {
+        font-family: MDNichromeTest-Bold;
+        font-size: var(--size);
+        line-height: 1;
+        color: white;
+    }
+    .variant-large h2 {
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    p {
+        font-size: calc(var(--size) * .67);
+        font-weight: 500;
+        color: var(--night);
+    }
+    .variant-badge p {
+        display: none;
+    }
+</style>

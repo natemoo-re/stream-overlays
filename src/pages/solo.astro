@@ -1,11 +1,12 @@
 ---
+import { show } from '../config.ts';
 import Chat from '../components/chat.astro';
+import Frame from '../components/frame.astro';
 import Grid from '../components/grid.astro';
 import Grain from '../components/grain.astro';
 import Bar from '../components/bar.astro';
 import Social from '../components/social.astro';
 import '../main.css';
-import Frame from '../components/frame.astro';
 ---
 <html lang="en">
 	<head>
@@ -15,21 +16,15 @@ import Frame from '../components/frame.astro';
 		<style>
 			main {
 				display: grid;
-				grid-template-columns: 1.05fr 1fr;
+				grid-template-columns: 3fr 1fr;
 				gap: var(--gap);
-				padding: var(--gap);
-				height: calc(100vh - calc(var(--gap) * 2));
+				padding: calc(var(--gap) * 2) var(--gap);
 			}
 			aside {
-				display: flex;
-				flex-direction: column;
 				grid-column: 2;
-				grid-row: 1 / -1;
-				height: 100%;
-				align-items: center;
-				justify-content: center;
+				grid-row: 1;
 			}
-			header {
+			footer {
 				display: flex;
 				flex-direction: row;
 				grid-column: 1 / -1;
@@ -37,12 +32,19 @@ import Frame from '../components/frame.astro';
 			}
 
 			h1 {
-				margin-top: auto;
-				text-align: center;
 				font-family: "MD Nichrome Test Ultra";
-				font-size: 7.5vw;
+				font-size: 5vw;
 				-webkit-background-clip: text;
 				-webkit-text-fill-color: transparent;
+			}
+			h3 {
+				font-size: 2vw;
+				font-family: MDNichromeTest-Bold;
+			}
+			p {
+				font-size: 1.5vw;
+				font-family: sans-serif;
+				font-weight: bold;
 			}
 		</style>
 	</head>
@@ -50,12 +52,20 @@ import Frame from '../components/frame.astro';
 		<Grain />
 		<Bar />
 		<main>
-			<Frame ratio="1 / 1" />
+			<Frame ratio="1.675 / 1" max="610"/>
 			<aside>
-				<Chat />
-				<h1 class="gradient">nmoo.dev</h1>
+				<Frame ratio="1 / 1" />
+				<Chat small />
 			</aside>
+			<footer>
+				<div>
+					<h1 class="gradient">nmoo.dev</h1>
+					<p set:html={show.title} />
+				</div>
+				<Social />
+			</footer>
 		</main>
+
 		<Grid />
 	</body>
 </html>

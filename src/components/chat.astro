@@ -1,9 +1,22 @@
-<iframe src="https://showmy.chat/c/showmychat?DEMO=true" frameborder="0" allowtransparency="true" />
+---
+const { small = false } = Astro.props;
+
+const url = `https://showmy.chat/c/showmychat?DEMO=true&showLatestMessages=6&theme=https://nmoo-dev-theme.netlify.app/${small ? 'small' : 'large'}.css`
+---
+
+<iframe class={small ? 'small' : ''} src={url} frameborder="0" allowtransparency />
 
 <style>
     iframe {
         width: 100%;
         height: 100%;
         background: transparent;
+        -webkit-mask-image: linear-gradient(to top, black 0%, black 32px, rgb(0 0 0 / 1), transparent);
+        mask-image: linear-gradient(to top, black 0%, black 32px, rgb(0 0 0 / 1), transparent);
+    }
+
+    .small {
+        margin-bottom: calc(var(--gap) * 2);
+        height: calc(100% - 11vw);
     }
 </style>

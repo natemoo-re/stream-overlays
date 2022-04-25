@@ -1,68 +1,37 @@
----
-import Chat from '../components/chat.astro';
-import Frame from '../components/frame.astro';
-import Grid from '../components/grid.astro';
-import Grain from '../components/grain.astro';
-import Bar from '../components/bar.astro';
-import Social from '../components/social.astro';
-import '../main.css';
----
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<title>Astro</title>
-		<style>
-			main {
-				display: grid;
-				grid-template-columns: 3fr 1fr;
-				gap: var(--gap);
-				padding: var(--gap);
-			}
-			aside {
-				grid-column: 2;
-				grid-row: 1;
-			}
-			footer {
-				display: flex;
-				flex-direction: row;
-				grid-column: 1 / -1;
-				gap: 5vw;
-			}
 
-			h1 {
-				font-family: "MD Nichrome Test Ultra";
-				font-size: 5vw;
-				-webkit-background-clip: text;
-				-webkit-text-fill-color: transparent;
-			}
-			h3 {
-				font-size: 2vw;
-				font-family: MDNichromeTest-Bold;
-			}
-		</style>
-	</head>
-	<body>
-		<Grain />
-		<Bar />
-		<main>
-			<Frame ratio="1.675 / 1" max="600"/>
-			<aside>
-				<Frame ratio="1 / 1" />
-				<Chat />
-			</aside>
-			<footer>
-				<div>
-					<h1 class="gradient">nmoo.dev</h1>
-				</div>
-				<Social />
-			</footer>
-		</main>
+<h1>nmoo.dev scenes</h1>
 
-		<Grid />
+<h2>Pre-Show</h2>
+<ul>
+    <li><a href="/soon/">Starting Soon</a></li>
+    <li><a href="/countdown/">Countdown</a></li>
+</ul>
 
-		<script>
-			import "../scripts/index.ts"
-		</script>
-	</body>
-</html>
+<h2>On Air</h2>
+<ul>
+    <li><a href="/solo/">Solo</a> &ndash; host in sidebar, main space for screenshare</li>
+    <li><a href="/face/">Face</a> &ndash; main space for host plus live chat</li>
+	<li><a href="/interview/">Interview</a> &ndash; host and guest, side-by-side</li>
+	<li><a href="/backseat/">Backseat</a> &ndash; guest in sidebar, main space for screenshare</li>
+</ul>
+
+
+<style>
+	body {
+		font-family: sans-serif;
+		max-width: 65ch;
+		margin: 3em auto;
+	}
+
+	h1, h2 {
+		font-family: "MD Nichrome Test Ultra", sans-serif;
+	}
+	
+	h2 {
+		margin-top: 2em;
+	}
+
+	li + li {
+		margin-top: 1em;
+	}
+</style>

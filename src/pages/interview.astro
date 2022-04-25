@@ -1,0 +1,44 @@
+---
+import PersonInfo from '../components/person-info.astro';
+import { show } from '../config.ts';
+import Frame from '../components/frame.astro';
+import Grid from '../components/grid.astro';
+import Grain from '../components/grain.astro';
+import Bar from '../components/bar.astro';
+import '../main.css';
+---
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>Astro</title>
+		<style>
+			main {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: var(--gap);
+				padding: calc(var(--gap) * 2) var(--gap);
+			}
+			main > div {
+				display: flex;
+				flex-direction: column;
+			}
+		</style>
+	</head>
+	<body>
+		<Grain />
+		<Bar />
+		<main>
+			<div>
+				<Frame ratio="1 / 1" />
+				<PersonInfo person={show.host} />
+			</div>
+			<div>
+				<Frame ratio="1 / 1" />
+				<PersonInfo person={show.guest} />
+			</div>
+		</main>
+
+		<Grid />
+	</body>
+</html>

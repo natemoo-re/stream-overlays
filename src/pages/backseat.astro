@@ -1,0 +1,86 @@
+---
+import PersonInfo from '../components/person-info.astro';
+import { show } from '../config.ts';
+import Frame from '../components/frame.astro';
+import Grid from '../components/grid.astro';
+import Grain from '../components/grain.astro';
+import Bar from '../components/bar.astro';
+import Social from '../components/social.astro';
+import '../main.css';
+---
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>Astro</title>
+		<style>
+			main {
+				display: grid;
+				grid-template-columns: 3fr 1fr;
+				gap: var(--gap);
+				padding: calc(var(--gap) * 2) var(--gap);
+			}
+			aside {
+				display: flex;
+				flex-direction: column;
+				grid-column: 2;
+				grid-row: 1;
+				max-height: 600px;
+				gap: var(--gap);
+			}
+			footer {
+				display: flex;
+				flex-direction: row;
+				grid-column: 1 / -1;
+				gap: 5vw;
+			}
+
+			h1 {
+				font-family: "MD Nichrome Test Ultra";
+				font-size: 5vw;
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+			}
+			h3 {
+				font-size: 2vw;
+				font-family: MDNichromeTest-Bold;
+			}
+			p {
+				font-size: 1.5vw;
+				font-family: sans-serif;
+				font-weight: bold;
+			}
+			.host {
+				width: 75%;
+			}
+		</style>
+	</head>
+	<body>
+		<Grain />
+		<Bar />
+		<main>
+			<Frame ratio="1.675 / 1" max="608"/>
+			<aside>
+				<div>
+					<Frame ratio="1 / 1">
+						<PersonInfo variant="badge" person={show.guest} />
+					</Frame>
+				</div>
+				<div>
+					<Frame ratio="1 / 1" class="host">
+						<PersonInfo variant="badge" person={show.host} />
+					</Frame>
+				</div>
+			</aside>
+			<footer>
+				<div>
+					<h1 class="gradient">nmoo.dev</h1>
+					<p set:html={show.title} />
+				</div>
+				<Social />
+			</footer>
+		</main>
+
+		<Grid />
+	</body>
+</html>
