@@ -1,7 +1,8 @@
 ---
+const DEMO = false;
 const { small = false } = Astro.props;
 
-const url = `https://showmy.chat/c/showmychat?DEMO=true&showLatestMessages=6&theme=https://nmoo-dev-theme.netlify.app/${small ? 'small' : 'large'}.css`
+const url = `https://showmy.chat/c/showmychat?${DEMO ? 'DEMO=true&' : ''}showLatestMessages=6&theme=https://nmoo-dev-theme.netlify.app/${small ? 'small' : 'large'}.css`
 ---
 
 <iframe class={small ? 'small' : ''} src={url} frameborder="0" allowtransparency />
