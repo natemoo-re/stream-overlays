@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'MD Nichrome';
+  src: url('/498ac5.woff2') format('woff2');
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -10,7 +15,7 @@ html {
 
 :root {
     font-family: sans-serif;
-    --font-display: "MD Nichrome Test Dark";
+    --font-display: "MD Nichrome";
     --black: #000000;
     --night: #112233;
     --cobalt: #3050FF;
