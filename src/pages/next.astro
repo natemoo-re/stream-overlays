@@ -1,0 +1,65 @@
+---
+import Grid from '../components/grid.astro';
+import Grain from '../components/grain.astro';
+import Bar from '../components/bar.astro';
+import '../main.css';
+
+const url = new URL(Astro.request.url);
+console.log({ geo: Astro.request.geo });
+const t = url.searchParams.get('t');
+if (!t) {
+    return Astro.redirect('/');
+}
+const date = new Date(Number.parseInt(t) * 1000);
+---
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>Astro</title>
+		<style>
+			main {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				padding: calc(var(--gap) * 2);
+				gap: var(--gap);
+				height: max-content;
+				margin: auto;
+			}
+			main > div {
+				display: flex;
+				flex-direction: column;
+			}
+			h1 {
+				font-family: "MD Nichrome Test Ultra";
+				font-size: 5vw;
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				line-height: 0.9;
+			}
+			h3 {
+				font-size: 5vw;
+				color: var(--night);
+				font-family: MDNichromeTest-Bold;
+				margin-bottom: var(--gap);
+			}
+		</style>
+	</head>
+	<body>
+		<Grain />
+		<Bar />
+		<main>
+			<div>
+				<h3>nmoo.dev</h3>
+				<h1 class="gradient">Next show&hellip;</h1>
+                <time datetime={date.toISOString()}>{date}</time>
+			</div>
+		</main>
+		<Grid />
+
+		<script>
+			import '../scripts/timezone.ts';
+		</script>
+	</body>
+</html>

@@ -7,6 +7,9 @@ import Grain from '../components/grain.astro';
 import Bar from '../components/bar.astro';
 import Social from '../components/social.astro';
 import '../main.css';
+
+const url = new URL(Astro.request.url);
+const title = url.searchParams.get('title') ?? show.title;
 ---
 <html lang="en">
 	<head>
@@ -60,7 +63,7 @@ import '../main.css';
 			<footer>
 				<div>
 					<h1 class="gradient">nmoo.dev</h1>
-					<p set:html={show.title} />
+					<p set:html={title} />
 				</div>
 				<Social />
 			</footer>
