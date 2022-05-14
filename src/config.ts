@@ -1,5 +1,5 @@
 export const show = {
-    title: `Let's build with Astro`,
+    title: `Streaming about streaming!`,
     host: {
         name: "Nate Moore",
         twitter: 'n_moore',
